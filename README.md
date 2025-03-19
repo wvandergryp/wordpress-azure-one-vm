@@ -1,112 +1,31 @@
 # wordpress-azure-one-vm
-Running WorkdPress on a single Azure VM almost free.
+Deploy a WordPress site on a single Azure Virtual Machine using Terraform, free for the first 12 months with Azure Free Tier.
 
-
-This will display a preview of the resources Terraform will create, including:
-
-Resource group
-
-Virtual network and subnet
-
-Public IP and network interface
-
-Security group rules
-
-Linux VM
-
-✅ Verify the plan output carefully before applying.
-
-
-
-🚀 Step 6: Apply the Configuration
-Run the following command to create the infrastructure:
-
-terraform apply
-Confirm the changes by typing yes when prompted.
-
-The deployment process takes a few minutes.
-
-Minimize image
-Edit image
-Delete image
-
-
-🌐 Step 7: Access the WordPress Site
-Get the public IP of the VM: After the deployment, Terraform will output the public IP address of the VM.
-
-terraform output linux_vm_ip_address
-Access the WordPress site: Open your web browser and navigate to:
-
-http://<public-ip>
-
-
-
-Minimize image
-Edit image
-Delete image
-
-
-Click on Continue
-
-
-
-Minimize image
-Edit image
-Delete image
-
-
-WordPress Installation Wizard:
-
-Choose your language.
-
-Enter the database details configured in the cloud-init script.
-
-Create your admin user and set the password.
-
-
-
-Minimize image
-Edit image
-Delete image
-
-
-You can access the OS by using the password specified in the terraform.tfvars file.
-
-
-
-Minimize image
-Edit image
-Delete image
-
-
-🔒 Step 8: Secure the Installation
-Once WordPress is running:
-
-Change the default admin password on WordPress for security.
-
+Steps to Deploy
+Clone the repository and navigate to the project directory.
+Authenticate with Azure using the CLI.
+Update the terraform.tfvars file with your Azure credentials, environment, and VM configuration.
+Initialize Terraform to download the required providers.
+Preview the infrastructure changes using terraform plan.
+Apply the configuration to create the resources.
+Wait a few minutes for the deployment to complete.
+Retrieve the public IP of the VM.
+Open your browser and navigate to http://<public-ip> to access the WordPress site.
+Complete the WordPress setup by configuring the database and creating the admin user.
+Change the default WordPress admin password for security.
 Enable automatic updates for WordPress core and plugins.
+Restrict SSH access to your IP only by modifying the NSG rules.
+Add an SSL certificate for HTTPS using Let’s Encrypt.
+Set up automated backups using Azure Backup.
+Monitor and manage costs with Azure Cost Management.
+Use Azure Advisor to optimize performance and security.
+When done, destroy the infrastructure to avoid unnecessary costs.
+Verify that all resources are removed from the Azure portal.
+Enjoy your WordPress site running on Azure!
 
-Consider adding a firewall rule to restrict SSH access to your IP only.
 
 
 
-🎉 Step 9: Enjoy Your WordPress Site
-Congratulations! 🎊 You now have a fully functional WordPress site running on Azure, deployed with Terraform, and free for the first 12 months if you use the Standard_B2pts_v2 VM size.
 
 
 
-✅ Next steps:
-
-Automate backups for your WordPress site.
-
-Enable SSL encryption with Let’s Encrypt for HTTPS access.
-
-Scale the environment by adding a load balancer or using Azure Database for MySQL.
-
-Run the following command to destroy the infrastructure:
-
-terraform destroy
-Conclusion
-With Terraform, you can automate the entire infrastructure setup for a WordPress site on Azure. This includes the creation of resources like VMs, network interfaces, subnets, and network security groups. By using infrastructure-as-code, we achieve consistency, scalability, and the ability to quickly replicate environments.
-
-Happy Terraforming!
